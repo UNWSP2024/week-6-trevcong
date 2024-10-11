@@ -1,15 +1,24 @@
+#AUTHOR: Trevor Conger UNWSP
+#DATE: 10/11/24
+#TITLE: Roll 100 times, see what you get.
+import random
 
-# Program #1: Random Dice
-# Write a "randDice" function (with no input) that randomly chooses two numbers between 1 and 6 (inclusive) and then adds them (this is to simulate the rolling of 2 dice).  
-# The dice sum will be the output of this function.
 
+#Function to roll two dice. DIE1 + DIE2
+#RETURN: the value of them added up
 def randDice():
-    # Write your logic to generate 2 numbers between 1 and 6 here
+    die1 = random.randint(1, 6)
+    die2 = random.randint(1, 6)
+    return die1 + die2
 
-    # Sum 2 numbers
+def main():
+    totalSum = 0
+    numRolls = 100
+    for _ in range(numRolls):
+        rollResult = randDice()
+        totalSum += rollResult
+    average = totalSum / numRolls
+    print(f"The average of 100 dice rolls is: {average:.2f}")
 
-    # return sum to calling function
-
-#########
-# Then write a mainline that calls the "randDice" function 100 times in a for loop.  
-# The mainline then prints the average of the 100 rolls, rounded to the nearest 0.01.
+if __name__ == "__main__":
+    main()
